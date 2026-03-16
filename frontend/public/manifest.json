@@ -1,0 +1,21 @@
+{
+  "name": "Bhartipada Temple",
+  "short_name": "Temple",
+  "description": "Bhartipada Temple Digital Ecosystem",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdfaf6",
+  "theme_color": "#f97316",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
