@@ -14,12 +14,12 @@ export function DeitySection() {
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           
           <FadeIn direction="right" className="w-full lg:w-1/2">
-            <div className="relative rounded-t-full rounded-b-3xl overflow-hidden border-8 border-white shadow-2xl aspect-[3/4] max-w-md mx-auto lg:mx-0">
+            <div className="relative rounded-t-full rounded-b-3xl overflow-hidden border-8 border-white shadow-2xl aspect-3/4 max-w-md mx-auto lg:mx-0">
               <div 
                 className="w-full h-full bg-cover bg-center"
                 style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1542013809-51000fc773ca?q=80&w=1000&auto=format&fit=crop")' }}
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-maroon/90 to-transparent p-8 text-center">
+              <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-maroon/90 to-transparent p-8 text-center">
                 <h3 className="text-3xl font-serif text-white font-bold drop-shadow-md">Shrimati Ishta Devi</h3>
                 <p className="text-saffron font-medium mt-2">The Divine Mother</p>
               </div>
@@ -44,7 +44,7 @@ export function DeitySection() {
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-maroon/5 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-saffron/20 to-transparent rounded-bl-full transition-transform group-hover:scale-110" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-linear-to-bl from-saffron/20 to-transparent rounded-bl-full transition-transform group-hover:scale-110" />
               
               <h4 className="flex items-center gap-3 text-2xl font-serif font-bold text-maroon mb-6">
                 <Calendar className="w-6 h-6 text-saffron" />

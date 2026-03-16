@@ -27,7 +27,7 @@ const COMMITTEE_MEMBERS = [
 export function AboutSection() {
   return (
     <section id="about" className="py-24 bg-white relative overflow-hidden">
-      <div className="absolute top-0 w-full h-1 bg-gradient-to-r from-transparent via-saffron to-transparent opacity-30" />
+      <div className="absolute top-0 w-full h-1 bg-linear-to-r from-transparent via-saffron to-transparent opacity-30" />
       
       <div className="container mx-auto px-4 md:px-6">
         <FadeIn className="text-center mb-16">
@@ -54,7 +54,8 @@ export function AboutSection() {
                   className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
                   style={{ backgroundImage: `url(${member.image})` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-maroon/80 via-transparent to-transparent" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-linear-to-r from-saffron/10 to-transparent rounded-full -mr-32 -mt-32 blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-linear-to-r from-maroon/5 to-transparent rounded-full -ml-32 -mb-32 blur-3xl text-nowrap" />
               </div>
               <div className="p-6 relative bg-white -mt-10 mx-4 mb-4 rounded-xl shadow-md z-10 transition-transform group-hover:-translate-y-2">
                 <h3 className="font-serif font-bold text-xl text-maroon">{member.name}</h3>

@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${inter.variable} ${lora.variable} antialiased selection:bg-saffron/20 selection:text-maroon flex flex-col min-h-screen`}
       >
         <Navbar />
-        <main className="flex-grow">
+        <main className="grow">
           {children}
         </main>
         <Footer />
