@@ -71,7 +71,7 @@ export function HistorySection() {
                   <div className="flex-1 bg-sandstone/50 p-6 rounded-2xl border border-maroon/5 group-hover:bg-white group-hover:shadow-xl transition-all">
                     <span className="text-saffron font-bold text-sm uppercase tracking-widest block mb-1">{event.year}</span>
                     <h4 className="font-serif text-xl font-bold text-maroon mb-2">{t(`history.events.${event.key}.title`)}</h4>
-                    <p className="text-foreground/70 text-sm leading-relaxed">{t(`history.events.${event.key}.desc`)}</p>
+                    <p className="text-foreground/90 text-sm leading-relaxed">{t(`history.events.${event.key}.desc`)}</p>
                   </div>
                 </div>
               ))}

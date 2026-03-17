@@ -15,9 +15,10 @@ export function HeroSection() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-b from-transparent to-sandstone" />
         {/* Placeholder for temple background image */}
         <div 
-          className="w-full h-full bg-cover bg-center mix-blend-overlay opacity-40"
+          className="w-full h-full bg-cover bg-center mix-blend-overlay opacity-50"
           style={{ backgroundImage: 'url("/assets/images/hero_bg.png")' }}
         />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
       <div className="container relative z-10 mx-auto text-center text-white">
@@ -28,10 +29,10 @@ export function HeroSection() {
         </FadeIn>
 
         <FadeIn direction="up">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 tracking-tight">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 tracking-tight drop-shadow-lg">
             {t("hero.title")}
           </h1>
-          <p className="max-w-3xl mx-auto text-lg md:text-xl text-white/90 mb-10 font-medium leading-relaxed">
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-white mb-10 font-medium leading-relaxed drop-shadow-md">
             {t("hero.subtitle")}
           </p>
         </FadeIn>

@@ -57,7 +57,7 @@ export function AboutSection() {
               <div className="p-6 relative bg-white -mt-10 mx-4 mb-4 rounded-xl shadow-md z-10 transition-transform group-hover:-translate-y-2">
                 <h3 className="font-serif font-bold text-xl text-maroon">{t(`about.members.${member.key}.name`)}</h3>
                 <p className="text-saffron font-bold text-sm mb-3 uppercase tracking-wider">{t(`about.members.${member.key}.role`)}</p>
-                <p className="text-foreground/70 text-sm leading-relaxed">{t(`about.members.${member.key}.contribution`)}</p>
+                <p className="text-foreground/90 text-sm leading-relaxed">{t(`about.members.${member.key}.contribution`)}</p>
               </div>
             </FadeIn>
           ))}

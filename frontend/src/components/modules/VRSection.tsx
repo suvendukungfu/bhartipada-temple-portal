@@ -50,7 +50,7 @@ export function VRSection() {
                </div>
                <div>
                   <h3 className="text-xl font-bold mb-2">{t("virtual_tour.cta_vr")}</h3>
-                  <p className="text-white/60 text-sm leading-relaxed">
+                  <p className="text-white/80 text-sm leading-relaxed">
                     {t("virtual_tour.vr_desc")}
                   </p>
                </div>
@@ -62,7 +62,7 @@ export function VRSection() {
                </div>
                <div>
                   <h3 className="text-xl font-bold mb-2">{t("virtual_tour.cta_ar")}</h3>
-                  <p className="text-white/60 text-sm leading-relaxed">
+                  <p className="text-white/80 text-sm leading-relaxed">
                     {t("virtual_tour.ar_desc")}
                   </p>
                </div>
