@@ -2,6 +2,7 @@ import { HeroSection } from "@/components/modules/HeroSection";
 import { HistorySection } from "@/components/modules/HistorySection";
 import { DeitySection } from "@/components/modules/DeitySection";
 import { GallerySection } from "@/components/modules/GallerySection";
+import { VRSection } from "@/components/modules/VRSection";
 import { AboutSection } from "@/components/modules/AboutSection";
 import { ContactSection } from "@/components/modules/ContactSection";
 
@@ -12,6 +13,7 @@ export default function Home() {
       <HistorySection />
       <DeitySection />
       <GallerySection />
+      <VRSection />
       <AboutSection />
       <ContactSection />
     </div>

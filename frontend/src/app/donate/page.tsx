@@ -5,11 +5,18 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { TransparentDonorList } from "@/components/donate/TransparentDonorList";
 import Script from "next/script";
 import { Heart, ShieldCheck } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+
+declare global {
+  interface Window {
+    Razorpay: new (options: object) => { open: () => void };
+  }
+}
 
 export default function DonatePage() {
+  const { t } = useLanguage();
   const [amount, setAmount] = useState<number>(1100);
   const [purpose, setPurpose] = useState<string>("General Donation");
-  const [paymentMode, setPaymentMode] = useState<string>("razorpay");
 
   const [formData, setFormData] = useState({
     name: "",
@@ -23,17 +30,19 @@ export default function DonatePage() {
   });
 
   const PRESET_AMOUNTS = [501, 1100, 2100, 5100, 11000];
-  const NEEDS = ["General Donation", "Temple Flooring", "Temple Lighting", "Temple Gates", "Water Tanks", "Festival Fund"];
+  const NEEDS = [
+    { key: "needs.general", label: t("needs.general") },
+    { key: "needs.flooring", label: t("needs.flooring") },
+    { key: "needs.lighting", label: t("needs.lighting") },
+    { key: "needs.gates", label: t("needs.gates") },
+    { key: "needs.water", label: t("needs.water") },
+    { key: "needs.festival", label: t("needs.festival") }
+  ];
 
   const handleProcessPayment = async (e: React.FormEvent) => {
     e.preventDefault();
     if (amount <= 0) return alert("Please enter a valid amount");
 
-    // Here, normally we would fetch the Razorpay order ID from our backend:
-    // const res = await fetch("/api/donations/create-order", { method: "POST", ... })
-    // const { order } = await res.json()
-
-    // Mocking Razorpay JS open for UI preview since we may not have prod keys right now
     const options = {
       key: process.env.NEXT_PUBLIC_RAZORPAY_KEY || "rzp_test_dummykey",
       amount: amount * 100,
@@ -41,10 +50,8 @@ export default function DonatePage() {
       name: "Bhartipada Temple",
       description: `Donation for ${purpose}`,
       image: "https://your-temple-logo-url.png",
-      // order_id: order.id,
-      handler: function (response: any) {
+      handler: function (response: { razorpay_payment_id: string }) {
         alert(`Payment successful! ID: ${response.razorpay_payment_id}`);
-        // Typically call backend verify endpoint here
       },
       prefill: {
         name: formData.name,
@@ -54,7 +61,6 @@ export default function DonatePage() {
       theme: { color: "#f97316" }
     };
 
-    // @ts-ignore
     const rzp = new window.Razorpay(options);
     rzp.open();
   };
@@ -64,12 +70,15 @@ export default function DonatePage() {
       <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
       
       <div className="pt-24 pb-12 bg-maroon text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay opacity-20" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-20"
+          style={{ backgroundImage: 'url("/assets/images/hero_bg.png")' }}
+        />
         <div className="container relative z-10 mx-auto px-4 md:px-6 text-center">
           <Heart className="w-12 h-12 text-saffron mx-auto mb-6 animate-pulse" />
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Support Our Divine Cause</h1>
+          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">{t("donate.title")}</h1>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
-            Your generous contribution helps us maintain the temple, support community welfare, and preserve our rich traditions for generations to come.
+            {t("donate.subtitle")}
           </p>
         </div>
       </div>
@@ -78,23 +87,21 @@ export default function DonatePage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
-            {/* Donation Form */}
             <FadeIn direction="up" className="lg:col-span-8 bg-white rounded-2xl shadow-2xl overflow-hidden border border-maroon/10">
               <div className="p-8 border-b border-sandstone">
                 <h2 className="text-2xl font-serif font-bold text-maroon mb-2 flex items-center gap-2">
-                  Make a Dakshina (Donation)
+                  {t("donate.form_title")}
                 </h2>
-                <p className="text-foreground/70">100% secure and transparent digital donation gateway.</p>
+                <p className="text-foreground/70">{t("donate.form_subtitle")}</p>
               </div>
 
               <form onSubmit={handleProcessPayment} className="p-8 space-y-8">
                 
-                {/* Step 1: Amount & Purpose */}
                 <div className="space-y-6">
-                  <h3 className="font-bold text-lg border-b border-maroon/10 pb-2">1. Select Amount & Purpose</h3>
+                  <h3 className="font-bold text-lg border-b border-maroon/10 pb-2">{t("donate.label_amount_step")}</h3>
                   
                   <div>
-                    <label className="block text-sm font-medium text-foreground/80 mb-3">Choose Amount (₹)</label>
+                    <label className="block text-sm font-medium text-foreground/80 mb-3">{t("donate.label_choose_amount")}</label>
                     <div className="flex flex-wrap gap-3 mb-4">
                       {PRESET_AMOUNTS.map(amt => (
                         <button
@@ -125,23 +132,23 @@ export default function DonatePage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-foreground/80 mb-2">Donation Purpose (Seva)</label>
+                    <label className="block text-sm font-medium text-foreground/80 mb-2">{t("donate.label_purpose")}</label>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                       {NEEDS.map(need => (
                         <label 
-                          key={need} 
-                          className={`cursor-pointer border rounded-lg p-3 transition-all ${purpose === need ? 'border-saffron bg-saffron/5' : 'border-maroon/10 hover:border-saffron/50'}`}
+                          key={need.key} 
+                          className={`cursor-pointer border rounded-lg p-3 transition-all ${purpose === need.label ? 'border-saffron bg-saffron/5' : 'border-maroon/10 hover:border-saffron/50'}`}
                         >
                           <div className="flex items-center gap-2">
                             <input 
                               type="radio" 
                               name="purpose" 
-                              value={need} 
-                              checked={purpose === need}
-                              onChange={() => setPurpose(need)}
+                              value={need.label} 
+                              checked={purpose === need.label}
+                              onChange={() => setPurpose(need.label)}
                               className="text-saffron focus:ring-saffron"
                             />
-                            <span className="text-sm font-medium">{need}</span>
+                            <span className="text-sm font-medium">{need.label}</span>
                           </div>
                         </label>
                       ))}
@@ -149,13 +156,12 @@ export default function DonatePage() {
                   </div>
                 </div>
 
-                {/* Step 2: Personal Details */}
                 <div className="space-y-6">
-                  <h3 className="font-bold text-lg border-b border-maroon/10 pb-2">2. Devotee Details</h3>
+                  <h3 className="font-bold text-lg border-b border-maroon/10 pb-2">{t("donate.label_details_step")}</h3>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-foreground/80 mb-1">Full Name *</label>
+                      <label className="block text-sm font-medium text-foreground/80 mb-1">{t("donate.label_name")} *</label>
                       <input 
                         required 
                         type="text" 
@@ -166,7 +172,7 @@ export default function DonatePage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-foreground/80 mb-1">Email Adddress</label>
+                      <label className="block text-sm font-medium text-foreground/80 mb-1">{t("donate.label_email")}</label>
                       <input 
                         type="email" 
                         value={formData.email}
@@ -176,7 +182,7 @@ export default function DonatePage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-foreground/80 mb-1">Phone Number *</label>
+                      <label className="block text-sm font-medium text-foreground/80 mb-1">{t("donate.label_phone")} *</label>
                       <input 
                         required 
                         type="tel" 
@@ -187,7 +193,7 @@ export default function DonatePage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-foreground/80 mb-1">PAN Number (For Tax Receipt)</label>
+                      <label className="block text-sm font-medium text-foreground/80 mb-1">{t("donate.label_pan")}</label>
                       <input 
                         type="text" 
                         value={formData.pan}
@@ -199,13 +205,13 @@ export default function DonatePage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-foreground/80 mb-1">Blessing Message / Sankalpa (Optional)</label>
+                    <label className="block text-sm font-medium text-foreground/80 mb-1">{t("donate.label_message")}</label>
                     <textarea 
                       rows={3}
                       value={formData.message}
                       onChange={e => setFormData({...formData, message: e.target.value})}
                       className="w-full border border-maroon/20 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-saffron/50 resize-none" 
-                      placeholder="Write your prayers or names for puja sankalpa..."
+                      placeholder={t("donate.placeholder_message")}
                     />
                   </div>
 
@@ -217,7 +223,7 @@ export default function DonatePage() {
                       onChange={e => setFormData({...formData, is_anonymous: e.target.checked})}
                       className="w-5 h-5 text-saffron rounded focus:ring-saffron"
                     />
-                    <label htmlFor="anon" className="text-sm text-foreground/80">Make my donation anonymous (Name will not appear on the public donor list)</label>
+                    <label htmlFor="anon" className="text-sm text-foreground/80">{t("donate.label_anonymous")}</label>
                   </div>
                 </div>
 
@@ -226,30 +232,26 @@ export default function DonatePage() {
                     type="submit"
                     className="w-full bg-saffron hover:bg-saffron/90 text-white py-4 rounded-xl text-lg font-bold transition-all shadow-xl shadow-saffron/20 flex flex-col items-center justify-center gap-1 group"
                   >
-                    <span className="flex items-center gap-2"><ShieldCheck className="w-5 h-5" /> Proceed to Pay ₹{amount.toLocaleString('en-IN')}</span>
-                    <span className="text-xs font-normal text-white/80 group-hover:text-white transition-colors">via Secure Razorpay Gateway (UPI / Cards / NetBanking)</span>
+                    <span className="flex items-center gap-2"><ShieldCheck className="w-5 h-5" /> {t("donate.btn_pay")} ₹{amount.toLocaleString('en-IN')}</span>
+                    <span className="text-xs font-normal text-white/80 group-hover:text-white transition-colors">{t("donate.btn_secure_note")}</span>
                   </button>
                 </div>
               </form>
             </FadeIn>
 
-            {/* Sidebar info */}
             <div className="lg:col-span-4 space-y-8">
               <FadeIn direction="left" delay={0.2}>
                 <TransparentDonorList />
               </FadeIn>
 
               <FadeIn direction="left" delay={0.4} className="bg-maroon text-white p-8 rounded-2xl shadow-xl">
-                <h3 className="font-serif font-bold text-xl mb-4 text-temple-gold">Why we need your support</h3>
+                <h3 className="font-serif font-bold text-xl mb-4 text-temple-gold">{t("needs.why_title")}</h3>
                 <p className="text-white/80 text-sm leading-relaxed mb-4">
-                  The temple relies entirely on devotee contributions for its daily rituals, lighting, maintenance, and ongoing construction projects.
-                </p>
-                <p className="text-white/80 text-sm leading-relaxed mb-6">
-                  Every rupee donated goes directly to the temple trust fund with 100% transparency.
+                  {t("needs.why_desc")}
                 </p>
                 <div className="border-t border-white/20 pt-4 flex items-center justify-between">
-                  <span className="text-sm text-white/60">Tax Exempt</span>
-                  <span className="font-bold text-sm text-temple-gold">80G Certified</span>
+                  <span className="text-sm text-white/60">{t("needs.tax_exempt")}</span>
+                  <span className="font-bold text-sm text-temple-gold">{t("needs.certified")}</span>
                 </div>
               </FadeIn>
             </div>

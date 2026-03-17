@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   description: "A digital ecosystem for Bhartipada Temple",
 };
 
+import { LanguageProvider } from "@/lib/i18n/LanguageContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,11 +31,13 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${lora.variable} antialiased selection:bg-saffron/20 selection:text-maroon flex flex-col min-h-screen`}
       >
-        <Navbar />
-        <main className="grow">
-          {children}
-        </main>
-        <Footer />
+        <LanguageProvider>
+          <Navbar />
+          <main className="grow">
+            {children}
+          </main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

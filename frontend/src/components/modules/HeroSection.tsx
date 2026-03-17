@@ -3,8 +3,11 @@
 import { FadeIn } from "@/components/ui/FadeIn";
 import Link from "next/link";
 import { ArrowRight, Heart } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function HeroSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-linear-to-br from-saffron via-orange-500 to-maroon py-20 px-4">
       {/* Background with spiritual pattern or gradient placeholder */}
@@ -13,7 +16,7 @@ export function HeroSection() {
         {/* Placeholder for temple background image */}
         <div 
           className="w-full h-full bg-cover bg-center mix-blend-overlay opacity-40"
-          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1544006659-f0b21f04cb1d?q=80&w=2000&auto=format&fit=crop")' }}
+          style={{ backgroundImage: 'url("/assets/images/hero_bg.png")' }}
         />
       </div>
 
@@ -26,10 +29,10 @@ export function HeroSection() {
 
         <FadeIn direction="up">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 tracking-tight">
-            Bhartipada Temple
+            {t("hero.title")}
           </h1>
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-white/90 mb-10 font-medium leading-relaxed">
-            A spiritual odyssey connecting devotees worldwide. Experience the divine grace of our ancient heritage.
+            {t("hero.subtitle")}
           </p>
         </FadeIn>
 
@@ -39,13 +42,13 @@ export function HeroSection() {
             className="group flex items-center gap-3 px-8 py-4 bg-saffron text-white rounded-full font-bold text-lg transition-all hover:bg-white hover:text-saffron shadow-xl shadow-saffron/20"
           >
             <Heart className="w-5 h-5 fill-current" />
-            Donate Now
+            {t("hero.cta_donate")}
           </Link>
           <Link 
             href="#history" 
             className="group flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-full font-bold text-lg transition-all hover:bg-white/20"
           >
-            Explore Temple
+            {t("hero.cta_explore")}
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </Link>
         </FadeIn>

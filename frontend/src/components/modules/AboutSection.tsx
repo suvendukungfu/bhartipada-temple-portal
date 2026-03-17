@@ -2,29 +2,26 @@
 
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Users } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const COMMITTEE_MEMBERS = [
   {
-    name: "Sri Ramesh Kumar",
-    role: "President",
-    contribution: "Led the fundraising and foundation phase.",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop"
+    key: "member_1",
+    image: "/assets/images/member_1.png"
   },
   {
-    name: "Dr. Ananya Dash",
-    role: "Secretary",
-    contribution: "Manages temple events and daily administration.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop"
+    key: "member_2",
+    image: "/assets/images/member_2.png"
   },
   {
-    name: "Pandit Rajeev Sharma",
-    role: "Head Priest",
-    contribution: "Guiding the spiritual rituals for over 30 years.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+    key: "member_3",
+    image: "/assets/images/member_3.png"
   }
 ];
 
 export function AboutSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="py-24 bg-white relative overflow-hidden">
       <div className="absolute top-0 w-full h-1 bg-linear-to-r from-transparent via-saffron to-transparent opacity-30" />
@@ -34,17 +31,17 @@ export function AboutSection() {
           <div className="inline-flex items-center justify-center p-4 bg-saffron/10 rounded-full mb-6 text-saffron">
             <Users className="w-8 h-8" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-maroon mb-4">Temple Committee</h2>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-maroon mb-4">{t("about.title")}</h2>
           <div className="w-24 h-1 bg-saffron mx-auto rounded-full mb-6" />
           <p className="max-w-2xl mx-auto text-lg text-foreground/80">
-            Meet the dedicated individuals who volunteer their lives to maintain our spiritual heritage.
+            {t("about.subtitle")}
           </p>
         </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {COMMITTEE_MEMBERS.map((member, idx) => (
             <FadeIn 
-              key={member.name} 
+              key={member.key} 
               delay={idx * 0.15} 
               direction="up"
               className="bg-sandstone rounded-2xl overflow-hidden shadow-lg border border-maroon/5 group"
@@ -58,9 +55,9 @@ export function AboutSection() {
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-linear-to-r from-maroon/5 to-transparent rounded-full -ml-32 -mb-32 blur-3xl text-nowrap" />
               </div>
               <div className="p-6 relative bg-white -mt-10 mx-4 mb-4 rounded-xl shadow-md z-10 transition-transform group-hover:-translate-y-2">
-                <h3 className="font-serif font-bold text-xl text-maroon">{member.name}</h3>
-                <p className="text-saffron font-bold text-sm mb-3 uppercase tracking-wider">{member.role}</p>
-                <p className="text-foreground/70 text-sm leading-relaxed">{member.contribution}</p>
+                <h3 className="font-serif font-bold text-xl text-maroon">{t(`about.members.${member.key}.name`)}</h3>
+                <p className="text-saffron font-bold text-sm mb-3 uppercase tracking-wider">{t(`about.members.${member.key}.role`)}</p>
+                <p className="text-foreground/70 text-sm leading-relaxed">{t(`about.members.${member.key}.contribution`)}</p>
               </div>
             </FadeIn>
           ))}
