@@ -1,74 +1,44 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import { translations, Language } from "./translations";
+import React, { createContext, useContext, useState } from "react";
 
-type TranslationValue = string | { [key: string]: TranslationValue };
+type Language = "en" | "hi" | "or";
 
-interface LanguageContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
+import { translations } from "./translations";
+
+type ContextType = {
+  lang: Language;
+  setLang: (lang: Language) => void;
   t: (path: string) => string;
-}
+};
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<ContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("en");
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const [lang, setLang] = useState<Language>("en");
 
-  // Load language from localStorage after mount
-  useEffect(() => {
-    const saved = localStorage.getItem("app_lang") as Language;
-    if (saved && (saved === "en" || saved === "hi" || saved === "or")) {
-      setTimeout(() => setLanguageState(saved), 0);
-    }
-  }, []);
-
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    localStorage.setItem("app_lang", lang);
-  };
-
-  // Translation helper function
-  const t = (path: string): string => {
+  const t = (path: string) => {
     const keys = path.split(".");
-    let current: TranslationValue = translations[language] as TranslationValue;
-    
+    let result: unknown = translations[lang];
     for (const key of keys) {
-      if (typeof current === 'object' && current !== null && current[key] !== undefined) {
-        current = current[key];
+      if (result && typeof result === "object") {
+        result = (result as Record<string, unknown>)[key];
       } else {
-        // Fallback to English if key missing
-        let fallback: TranslationValue = translations["en"] as TranslationValue;
-        for (const fKey of keys) {
-            if (typeof fallback === 'object' && fallback !== null && fallback[fKey] !== undefined) {
-                fallback = fallback[fKey];
-            } else {
-                return path;
-            }
-        }
-        return typeof fallback === 'string' ? fallback : path;
+        return path;
       }
     }
-    return typeof current === 'string' ? current : path;
+    return typeof result === "string" ? result : path;
   };
 
-  // Sync html lang attribute
-  useEffect(() => {
-    document.documentElement.lang = language;
-  }, [language]);
-
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ lang, setLang, t }}>
       {children}
     </LanguageContext.Provider>
   );
 }
 
-export function useLanguage() {
+export const useLanguage = () => {
   const context = useContext(LanguageContext);
-  if (context === undefined) {
-    throw new Error("useLanguage must be used within a LanguageProvider");
-  }
+  if (!context) throw new Error("useLanguage must be used within LanguageProvider");
   return context;
-}
+};

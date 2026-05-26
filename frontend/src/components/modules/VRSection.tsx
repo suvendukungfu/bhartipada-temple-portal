@@ -3,13 +3,13 @@
 import { FadeIn } from "@/components/ui/FadeIn";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { Monitor, Smartphone, Glasses } from "lucide-react";
+import { Temple3D } from "./Temple3D";
 
 export function VRSection() {
   const { t } = useLanguage();
 
   return (
     <section id="vr-tour" className="py-24 bg-maroon text-white relative overflow-hidden">
-      {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-saffron/10 rounded-full blur-3xl -mr-48 -mt-48" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-saffron/5 rounded-full blur-3xl -ml-48 -mb-48" />
 
@@ -28,19 +28,8 @@ export function VRSection() {
         </FadeIn>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <FadeIn direction="right" className="relative aspect-video rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl group">
-             <div 
-                className="w-full h-full bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
-                style={{ backgroundImage: 'url("/assets/images/gallery_4.png")' }}
-              />
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-all">
-                <div className="w-20 h-20 bg-saffron rounded-full flex items-center justify-center animate-pulse cursor-pointer shadow-xl shadow-saffron/20 group-hover:scale-110 transition-transform">
-                   <div className="w-0 h-0 border-t-10 border-t-transparent border-l-18 border-l-white border-b-10 border-b-transparent ml-2" />
-                </div>
-              </div>
-              <div className="absolute bottom-6 left-6 bg-maroon/80 backdrop-blur-md px-4 py-2 rounded-lg border border-white/10">
-                  <span className="text-temple-gold font-bold text-sm tracking-widest uppercase">{t("virtual_tour.panorama_label")}</span>
-              </div>
+          <FadeIn direction="right" className="w-full">
+            <Temple3D />
           </FadeIn>
 
           <div className="space-y-8">
@@ -87,3 +76,4 @@ export function VRSection() {
     </section>
   );
 }
+

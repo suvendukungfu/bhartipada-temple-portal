@@ -11,7 +11,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const { lang: language, setLang: setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {

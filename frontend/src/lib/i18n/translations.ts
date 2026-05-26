@@ -14,6 +14,9 @@ export const translations = {
       subtitle: "A spiritual journey connecting devotees across the globe. Experience the divine grace of our ancient heritage.",
       cta_donate: "Donate Now",
       cta_explore: "Explore Temple",
+      dev_alert_title: "Architectural Planning Phase",
+      dev_alert_desc: "The temple is currently in its architectural planning and foundation phase. The majestic new structure, designed by Pradeep Sachdeva Design Associates, features a classic 35' x 19' Kalinga-style Vimana with an 18-inch plinth and monumental 12-inch diameter tie beams. Devotees are invited to review the official structural blueprints.",
+      dev_alert_cta: "View Temple Drawings (PDF)",
     },
     history: {
       title: "Our Sacred Heritage",
@@ -130,6 +133,28 @@ export const translations = {
         copyright: "All rights reserved.",
         dev_credit: "This platform was created by Suvendu Kumar Sahoo to digitally support Bhartipada Temple.",
         footer_desc: "A digital ecosystem to preserve our temple's history, connect our community, and maintain transparent development for the future."
+    },
+    drawings: {
+      title: "Sacred Architectural Blueprints",
+      subtitle: "Discover the sacred geometry, carvings, and sublime proportions of Odisha's classic temple drawings.",
+      explore_btn: "Explore Structure",
+      interactive_label: "Interactive blueprint drawing. Click hotspots to discover details.",
+      view_blueprint: "Blueprint Grid",
+      view_golden: "Sacred Art",
+      bell_audio: "Sound of Divinity",
+      bell_sound: "Darshan Bell Chime",
+      temple_wheel: "Konark Sun Wheel",
+      temple_spire: "Jagannath Spire",
+      temple_torana: "Mukteshwar Arch",
+      temple_elevation: "Bhartipada Elevation",
+      hotspots: {
+        kalasa: { title: "Kalasa", subtitle: "The Golden Urn", desc: "The crowning pitcher sitting atop the temple's pinnacle. Filled with sacred herbs and water, it serves as the celestial conduit channeling cosmic energy." },
+        amalaka: { title: "Amalaka", subtitle: "The Solar Crown", desc: "A massive fluted stone disc resembling the Amla fruit. It sits beneath the Kalasa, acting as a solar gear that anchors the temple spire's towering load." },
+        shikhara: { title: "Rekha Deula / Spire", subtitle: "The Curvilinear Tower", desc: "The vertical curvilinear tower that rises above the inner sanctum. It replicates Mount Meru, the cosmic center, housing the deity at its absolute center." },
+        jagamohana: { title: "Jagamohana", subtitle: "The Devotional Hall", desc: "The assembly hall where devotees gather for darshan. It features a pyramidal stepped roof (Pidha Deula style) representing material shelter before entering the spiritual womb." },
+        garbhagriha: { title: "Garbhagriha", subtitle: "The Sanctum Womb", desc: "The small, dark, rectangular womb-chamber. Kept intentionally dim to let devotees focus purely on the glowing, divine presence of the deity." },
+        torana: { title: "Torana", subtitle: "The Archway of Grace", desc: "The freestanding decorative archway representing the gateway of transition. Crossing the Torana symbolizes leaving behind the material ego to step into the divine court." }
+      }
     }
   },
   hi: {
@@ -146,7 +171,10 @@ export const translations = {
       title: "भारतीपाड़ा मंदिर",
       subtitle: "दुनिया भर के भक्तों को जोड़ने वाली एक आध्यात्मिक यात्रा। हमारी प्राचीन विरासत की दिव्य कृपा का अनुभव करें।",
       cta_donate: "अभी दान करें",
-      cta_explore: "मंदिर देखें"
+      cta_explore: "मंदिर देखें",
+      dev_alert_title: "वास्तुकला योजना चरण",
+      dev_alert_desc: "मंदिर वर्तमान में अपने वास्तुकला योजना और नींव चरण में है। प्रदीप सचदेवा डिज़ाइन एसोसिएट्स द्वारा डिज़ाइन की गई राजसी नई संरचना में 18 इंच की कुर्सी (plinth) और स्मारकीय 12 इंच व्यास के टाई बीम के साथ एक क्लासिक 35' x 19' कलिंग-शैली का विमान है। भक्तों को आधिकारिक संरचनात्मक ब्लूप्रिंट की समीक्षा करने के लिए आमंत्रित किया जाता है।",
+      dev_alert_cta: "मंदिर के चित्र देखें (PDF)",
     },
     history: {
       title: "हमारी पवित्र विरासत",
@@ -263,6 +291,28 @@ export const translations = {
         copyright: "सर्वाधिकार सुरक्षित।",
         dev_credit: "यह प्लेटफॉर्म भारतीपाड़ा मंदिर को डिजिटल रूप से समर्थन देने के लिए सुवेंदु कुमार साहू द्वारा बनाया गया था।",
         footer_desc: "हमारे मंदिर के इतिहास को संरक्षित करने, हमारे समुदाय को जोड़ने और भविष्य के लिए पारदर्शी विकास बनाए रखने के लिए एक डिजिटल पारिस्थितिकी तंत्र।"
+    },
+    drawings: {
+      title: "पवित्र स्थापत्य खाका",
+      subtitle: "ओडिशा के प्राचीन मंदिरों की दिव्य ज्यामिति, नक्काशी और अद्भुत अनुपात के रेखाचित्रों का अन्वेषण करें।",
+      explore_btn: "संरचना देखें",
+      interactive_label: "इंटरएक्टिव चित्र। विवरण जानने के लिए हॉटस्पॉट पर क्लिक करें।",
+      view_blueprint: "ब्लूप्रिंट ग्रिड",
+      view_golden: "दिव्य स्वर्ण कला",
+      bell_audio: "दिव्य ध्वनि",
+      bell_sound: "दर्शन घंटा ध्वनि",
+      temple_wheel: "कोणार्क चक्र",
+      temple_spire: "जगन्नाथ शिखर",
+      temple_torana: "मुक्तेश्वर तोरण",
+      temple_elevation: "भारतीपाड़ा ऊंचाई",
+      hotspots: {
+        kalasa: { title: "कलश", subtitle: "पवित्र स्वर्ण घट", desc: "मंदिर के शिखर पर स्थित स्वर्ण कलश। यह ब्रह्मांडीय ऊर्जा को आकर्षित करने वाला एक दिव्य माध्यम है जो अमृत और कल्याण का प्रतीक है।" },
+        amalaka: { title: "अमलक", subtitle: "सौर मुकुट", desc: "एक विशाल, खांचेदार पत्थर की डिस्क जो आंवला फल के समान होती है। यह मंदिर के शिखर की ऊर्जा को केंद्रित और स्थिर रखती है।" },
+        shikhara: { title: "रेखा देउल / शिखर", subtitle: "वक्ररेखीय मीनार", desc: "गर्भगृह के ऊपर उठने वाली एक भव्य वक्ररेखीय मीनार। यह ब्रह्मांड के केंद्र सुमेरु पर्वत का प्रतिनिधित्व करती है।" },
+        jagamohana: { title: "जगमोहन", subtitle: "प्रार्थना सभा गृह", desc: "वह सभा गृह जहां भक्त दर्शन के लिए एकत्र होते हैं। इसकी पिरामिड जैसी सीढ़ीदार छत (पीढ़ा शैली) सुरक्षा और समर्पण का प्रतीक है।" },
+        garbhagriha: { title: "गर्भगृह", subtitle: "दिव्य गर्भ", desc: "एक छोटा, शांत और अंधेरा कक्ष जहां मुख्य विग्रह विराजमान होते हैं। ध्यान और भक्ति को केंद्रित करने के लिए यहां प्रकाश न्यूनतम रखा जाता है।" },
+        torana: { title: "तोरण", subtitle: "भव्य प्रवेश द्वार", desc: "एक उत्कृष्ट अलंकृत तोरण द्वार जो भौतिक जगत से आध्यात्मिक जगत में प्रवेश का प्रतीक है। इसे पार करना अहंकार त्यागने का प्रतीक है।" }
+      }
     }
   },
   or: {
@@ -280,6 +330,9 @@ export const translations = {
       subtitle: "ବିଶ୍ୱବ୍ୟାପୀ ଭକ୍ତଙ୍କୁ ଯୋଡୁଥିବା ଏକ ଆଧ୍ୟାତ୍ମିକ ଯାତ୍ରା। ଆମର ପ୍ରାଚୀନ ଐତିହ୍ୟର ଦିବ୍ୟ କୃପା ଅନୁଭବ କରନ୍ତୁ।",
       cta_donate: "ଦାନ କରନ୍ତୁ",
       cta_explore: "ମନ୍ଦିର ଦର୍ଶନ",
+      dev_alert_title: "ସ୍ଥାପତ୍ୟ ଯୋଜନା ପର୍ଯ୍ୟାୟ",
+      dev_alert_desc: "ମନ୍ଦିର ବର୍ତ୍ତମାନ ଏହାର ସ୍ଥାପତ୍ୟ ଯୋଜନା ଏବଂ ଭିତ୍ତିଭୂମି ପର୍ଯ୍ୟାୟରେ ଅଛି । ପ୍ରଦୀପ ସଚଦେବ ଡିଜାଇନ୍ ଆସୋସିଏଟ୍ସ ଦ୍ୱାରା ଡିଜାଇନ୍ ହୋଇଥିବା ଏହି ବିଶାଳ ନୂତନ ସଂରଚନାରେ ୧୮-ଇଞ୍ଚର ମୂଳଦୁଆ ଏବଂ ୧୨-ଇଞ୍ଚ ବ୍ୟାସ ବିଶିଷ୍ଟ ବିଶାଳ ଟାଇ ବିମ୍ ସହିତ ଏକ କ୍ଲାସିକ୍ ୩୫' x ୧୯' କଳିଙ୍ଗ-ଶୈଳୀର ବିମାନ ରହିଛି । ସରକାରୀ ସଂରଚନାତ୍ମକ ବ୍ଲୁପ୍ରିଣ୍ଟ ସମୀକ୍ଷା କରିବାକୁ ଭକ୍ତମାନଙ୍କୁ ନିମନ୍ତ୍ରଣ କରାଯାଉଛି ।",
+      dev_alert_cta: "ମନ୍ଦିର ମାନଚିତ୍ର ଦେଖନ୍ତୁ (PDF)",
     },
     history: {
       title: "ଆମର ପବିତ୍ର ଐତିହ୍ୟ",
@@ -396,6 +449,28 @@ export const translations = {
         copyright: "ସର୍ବସତ୍ତ୍ୱ ସଂରକ୍ଷିତ ।",
         dev_credit: "ଏହି ପ୍ଲାଟଫର୍ମଟି ଭାରତୀପଡ଼ା ମନ୍ଦିରକୁ ଡିଜିଟାଲ୍ ଭାବରେ ସମର୍ଥନ କରିବା ପାଇଁ ଶୁଭେନ୍ଦୁ କୁମାର ସାହୁଙ୍କ ଦ୍ୱାରା ନିର୍ମିତ ।",
         footer_desc: "ଆମ ମନ୍ଦିରର ଇତିହାସକୁ ସଂରକ୍ଷିତ ରଖିବା, ଆମ ସମ୍ପ୍ରଦାୟକୁ ଯୋଡିବା ଏବଂ ଭବିଷ୍ୟତ ପାଇଁ ସ୍ୱଚ୍ଛ ବିକାଶ ବଜାୟ ରଖିବା ପାଇଁ ଏକ ଡିଜିଟାଲ୍ ବ୍ୟବସ୍ଥା ।"
+    },
+    drawings: {
+      title: "ପବିତ୍ର ସ୍ଥାପତ୍ୟ ମାନଚିତ୍ର",
+      subtitle: "ଓଡ଼ିଶାର ପ୍ରସିଦ୍ଧ ମନ୍ଦିର ଗୁଡ଼ିକର ଦିବ୍ୟ ଜ୍ୟାମିତି, କାରୁକାର୍ଯ୍ୟ ଏବଂ ମନୋରମ ଶୈଳୀର ଚିତ୍ରକଳା ଅନୁଭବ କରନ୍ତୁ।",
+      explore_btn: "ସ୍ଥାପତ୍ୟ ଅନୁସନ୍ଧାନ",
+      interactive_label: "ଇଣ୍ଟରାକ୍ଟିଭ୍ ଚିତ୍ର। ବିବରଣୀ ଜାଣିବା ପାଇଁ ହଟସ୍ପଟ୍ ଉପରେ କ୍ଲିକ୍ କରନ୍ତୁ।",
+      view_blueprint: "ବ୍ଲୁପ୍ରିଣ୍ଟ ଗ୍ରିଡ୍",
+      view_golden: "ଦିବ୍ୟ ସ୍ୱର୍ଣ୍ଣ କଳା",
+      bell_audio: "ଦିବ୍ୟ ଶବ୍ଦ",
+      bell_sound: "ଦର୍ଶନ ଘଣ୍ଟି ଧ୍ୱନି",
+      temple_wheel: "କୋଣାର୍କ ଚକ୍ର",
+      temple_spire: "ଜଗନ୍ନାଥ ମନ୍ଦିର ଚୂଡ଼ା",
+      temple_torana: "ମୁକ୍ତେଶ୍ୱର ତୋରଣ",
+      temple_elevation: "ଭାରତୀପଡ଼ା ଉଚ୍ଚତା",
+      hotspots: {
+        kalasa: { title: "କଳସ", subtitle: "ପବିତ୍ର ସ୍ୱର୍ଣ୍ଣ କୁମ୍ଭ", desc: "ମନ୍ଦିରର ଶୀର୍ଷରେ ଅବସ୍ଥିତ ପବିତ୍ର କଳସ। ଏହା ମନ୍ଦିରର ଦିବ୍ୟ ଶକ୍ତି ଓ ଆଧ୍ୟାତ୍ମିକ ତରଙ୍ଗକୁ ଆକର୍ଷିତ କରି ଭକ୍ତଙ୍କୁ ଆଶୀର୍ବାଦ ପ୍ରଦାନ କରିଥାଏ।" },
+        amalaka: { title: "ଅଁଳା", subtitle: "ସୌର ମୁକୁଟ", desc: "ଅଁଳା କୋଳି ଆକୃତିର ଏକ ବିଶାଳ ଗୋଲାକାର ପଥର ଖଣ୍ଡ ଯାହା ଶୀର୍ଷ ସ୍ଥାପତ୍ୟକୁ ସୁଦୃଢ଼ ରଖେ ଏବଂ ଶକ୍ତି କେନ୍ଦ୍ରୀଭୂତ କରେ।" },
+        shikhara: { title: "ରେଖା ଦେଉଳ / ଶିଖର", subtitle: "ଦିବ୍ୟ ବିମାନ ଶୈଳୀ", desc: "ଗର୍ଭଗୃହ ଉପରେ ସଗର୍ବେ ଠିଆ ହୋଇଥିବା ବିଶାଳ ବକ୍ର ଶିଖର। ଏହା ମେରୁ ପର୍ବତ ବା ବ୍ରହ୍ମାଣ୍ଡର କେନ୍ଦ୍ରବିନ୍ଦୁକୁ ସୂଚିତ କରିଥାଏ।" },
+        jagamohana: { title: "ଜଗମୋହନ", subtitle: "ପ୍ରାର୍ଥନା ସଭା ଗୃହ", desc: "ଭକ୍ତମାନେ ଏକତ୍ରିତ ହୋଇ ଦର୍ଶନ କରୁଥିବା ମୁଖ୍ୟ ମଣ୍ଡପ। ଏହାର ପିରାମିଡ୍ ସଦୃଶ ପିଢ଼ା ଛାତ ସାଂସାରିକ ଶରଣକୁ ବୁଝାଇଥାଏ।" },
+        garbhagriha: { title: "ଗର୍ଭଗୃହ", subtitle: "ଦିବ୍ୟ ଶ୍ରୀମନ୍ଦିର", desc: "ମନ୍ଦିରର ସବୁଠାରୁ ପବିତ୍ର କେନ୍ଦ୍ର କକ୍ଷ ଯେଉଁଠି ମହାପ୍ରଭୁ ବିରାଜମାନ କରନ୍ତି। ମନକୁ ଏକାଗ୍ର ଏବଂ ଦେବୀଙ୍କ ଦର୍ଶନରେ ନିମଗ୍ନ କରିବାକୁ ଏଠାରେ ସାମାନ୍ୟ ଆଲୋକ ଥାଏ।" },
+        torana: { title: "ତୋରଣ", subtitle: "ଭବ୍ୟ କାରୁକାର୍ଯ୍ୟ ଗେଟ୍", desc: "ମନ୍ଦିରର ମୁଖ୍ୟ ପ୍ରବେଶ ପଥରେ ଥିବା ଏକ ଚିତ୍ତାକର୍ଷକ ମୁକ୍ତ ତୋରଣ। ଏହାକୁ ଅତିକ୍ରମ କରିବା ଅର୍ଥ ସଂସାରର ଅହଂକାର ତ୍ୟାଗ କରି ଶରଣାଗତ ହେବା।" }
+      }
     }
   }
 };

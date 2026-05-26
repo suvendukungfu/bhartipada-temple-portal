@@ -3,6 +3,7 @@
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Sparkles, Calendar } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import Image from "next/image";
 
 export function DeitySection() {
   const { t } = useLanguage();
@@ -18,9 +19,14 @@ export function DeitySection() {
           
           <FadeIn direction="right" className="w-full lg:w-1/2">
             <div className="relative rounded-t-full rounded-b-3xl overflow-hidden border-8 border-white shadow-2xl aspect-3/4 max-w-md mx-auto lg:mx-0">
-              <div 
-                className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: 'url("/assets/images/deity.png")' }}
+              <Image
+                src="/assets/images/mata-ishta-devi.jpg"
+                alt="Mata Ishta Devi, the presiding deity of Bhartipada Temple"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                loading="lazy"
+                quality={85}
               />
               <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-maroon/90 to-transparent p-8 text-center">
                 <h3 className="text-3xl font-serif text-white font-bold drop-shadow-md">{t("deity.name")}</h3>

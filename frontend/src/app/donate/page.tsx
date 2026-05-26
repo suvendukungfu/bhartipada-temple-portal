@@ -9,7 +9,7 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 declare global {
   interface Window {
-    Razorpay: new (options: object) => { open: () => void };
+    Razorpay: new (options: unknown) => { open: () => void };
   }
 }
 
